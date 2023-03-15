@@ -1,0 +1,26 @@
+---
+
+-  hosts: all
+   become: true
+   pre_tasks:
+
+    - name: install updates
+      package:
+       upgrade: dist
+       update_cache: yes
+
+
+
+-  hosts: web_servers
+   become: true
+   tasks:
+
+    - name: install apache and php
+      package:
+        name: 
+          - "{{ apache_package }}"
+          - "{{ php_package }}"
+        state: latest
+        update_cache: yes
+
+
