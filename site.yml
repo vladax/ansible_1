@@ -5,10 +5,29 @@
    pre_tasks:
 
     - name: install updates
+      tags: always
       package:
        upgrade: dist
        update_cache: yes
 
+-  hosts: all
+   become: true
+   tasks:
+
+    - name: create larry user
+      tags: always
+      user:
+        name: larry
+        groups: root
+
+    - name: add sudoers file for larry
+      tags: always
+      copy:
+        src: sudoer_larry
+        dest: /etc/sudoers.d/larry
+        owner: root
+        group: root
+        mode: 0440
 
 
 -  hosts: web_servers
@@ -16,6 +35,7 @@
    tasks:
 
     - name: install apache and php
+      tags: apache, php
       package:
         name: 
           - "{{ apache_package }}"
