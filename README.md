@@ -1,3 +1,3 @@
-# ansible learning path
+# ansible
 
-This is part of Ansible learning path!
+Use this Ansible script to install apache and php on fresh Ubuntu server.
