@@ -1,6 +1,5 @@
-# ansible
+# Ansible Basics
 
-Use this Ansible script to install apache and php on fresh Ubuntu server.
+## script to add user, install Apache, and PHP on fresh Ubuntu server.
 
-execute ansible playbook: 
-ansible-playbook --ask-become-pass site.yml
+use `ansible-playbook --ask-become-pass site.yml` for executing ansible playbook
